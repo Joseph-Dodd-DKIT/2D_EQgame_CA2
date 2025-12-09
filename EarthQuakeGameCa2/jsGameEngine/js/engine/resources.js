@@ -1,7 +1,8 @@
 // Create an Images object to hold the Image instances for the player and the enemy.
 const Images = {
   player: new Image(), // The Image instance for the player.
-  enemy: new Image(),
+  rock: new Image(),
+  roof: new Image(),
   collectible: new Image()// The Image instance for the enemy.
 };
 
@@ -13,10 +14,13 @@ const AudioFiles = {
 };
 
 // Set the source of the player image.
-Images.player.src = './resources/images/player/Santa.png'; // Update the image path
+Images.player.src = './resources/images/player/Person.png'; // Update the image path
+Images.rock.src = './resources/images/enemy/RockPile.png';
+Images.roof.src = './resources/images/collectible/SafeHouse.png';
+
 
 // Set the source of the enemy image.
-Images.enemy.src = './resources/images/enemy/enemy.png'; // Update the image path
+//Images.enemy.src = './resources/images/enemy/enemy.png'; // Update the image path
 Images.collectible.src = "./resources/images/collectible/star.png";
 // Export the Images and AudioFiles objects so they can be imported and used in other modules.
 export { Images, AudioFiles };
