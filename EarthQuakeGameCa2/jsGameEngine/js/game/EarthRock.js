@@ -20,6 +20,7 @@ class Rock extends GameObject
         this.width = width;
         this.height = height;
         this.speed = 150;
+        this.RockCount = 0;
     }
     
     update (deltaTime)
@@ -29,18 +30,23 @@ class Rock extends GameObject
         
         if(input.isKeyDown('ArrowLeft')||input.isKeyDown('ArrowRight'))
         {
-            physics.velocity.y = +this.speed;
+            physics.acceleration.y = +this.speed;
             this.direction = 1;
             //console.log("Show y:");
         }
         if(this.y > 400)
         {
             this.y = 0;
+            this.speed = this.speed+50;
+            //console.log("Show RockCount:"+this.RockCount);
+            this.RockCount++;
         }
-//        else
-//        {
-//            physics.velocity.x = 0;
-//        }
+        if(this.RockCount>10)
+        {
+            this.y = -200;
+            this.speed = 0;
+            physics.acceleration.y = 0;
+        }
         
         super.update(deltaTime);
     }

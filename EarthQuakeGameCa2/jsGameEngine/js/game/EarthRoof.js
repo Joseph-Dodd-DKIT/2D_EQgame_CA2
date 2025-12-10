@@ -16,6 +16,8 @@ class Roof extends GameObject
         this.addComponent( new Input());
         this.width = width;
         this.height = height;
+        Math.floor(Math.random() * 10);
+        console.log("Random:"+Math);
     }
 }
 export default Roof

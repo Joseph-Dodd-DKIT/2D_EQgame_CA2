@@ -31,7 +31,7 @@ class Player extends GameObject
             //console.log("move left");
             physics.velocity.x = -this.speed;
             this.direction = 1;
-            console.log("Show X:");
+            //console.log("Show X:");
             if(this.x < -640)
         {
             this.x = -640;

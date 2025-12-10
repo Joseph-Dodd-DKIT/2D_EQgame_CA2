@@ -16,6 +16,7 @@ class Level extends Game
         this.camera.target=player;
         this.camera.confiner = new Confiner(0,0,1000,this.canvas.height);
         
+        let RockArray = [];
         let rok = [
             new Rock (-580, this.canvas.height/7 - 175, Images.rock), //155
             new Rock (-425, this.canvas.height/7 - 175, Images.rock),
@@ -34,6 +35,7 @@ class Level extends Game
             this.addGameObject(RK);
         }
         
+        let RoofArray = [];
         let rof = [
             new Roof (-580, this.canvas.height/1.5 - 50, Images.roof),
             new Roof (-425, this.canvas.height/1.5 - 50, Images.roof),
