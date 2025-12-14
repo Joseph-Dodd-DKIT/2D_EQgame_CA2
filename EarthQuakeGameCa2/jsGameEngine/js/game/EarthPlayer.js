@@ -30,38 +30,28 @@ class Player extends GameObject
         {
             //console.log("move left");
             physics.velocity.x = -this.speed;
-            this.direction = 1;
-            //console.log("Show X:");
+            this.direction = -1;
             if(this.x < -640)
-        {
-            this.x = -640;
-        }
+            {
+                this.x = -640;
+            }
         }
         else if(input.isKeyDown('ArrowRight'))
         {
             physics.velocity.x = this.speed;
-            console.log("Show X:");
+            this.direction = 1;
             if(this.x > 880)
-        {
-            this.x = 880;
-        }
+            {
+                this.x = 880;
+            }
         }
         else
         {
             physics.velocity.x = 0;
         }
         
-        super.update(deltaTime);
-        
-        
-        
-//        update (deltaTime)
-//    {
-//        
-//    }
-    
-    
-    
+
+    super.update(deltaTime);
     }
 }
 export default Player

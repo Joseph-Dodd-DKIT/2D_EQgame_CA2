@@ -46,7 +46,7 @@ class Game {
 
     // Update all game objects and the camera.
     this.update();
-    this.camera.update();
+    this.camera.update(this.deltaTime);
     // Draw the game objects on the canvas.
     this.draw();
 

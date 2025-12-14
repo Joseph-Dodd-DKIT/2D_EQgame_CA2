@@ -13,13 +13,14 @@ class Rock extends GameObject
     constructor(x,y,width,height,Img)
     {
         super(x,y);
+        this.dif3 = 15;
         this.renderer = new Renderer('purple', 150, 150, Images.rock);
         this.addComponent(this.renderer);
         this.addComponent( new Physics({x:0, y:0}, {x:0, y:0}, {x:0, y:0}));
         this.addComponent( new Input());
         this.width = width;
         this.height = height;
-        this.speed = 150;
+        this.speed = 15;
         this.RockCount = 0;
     }
     
@@ -28,13 +29,17 @@ class Rock extends GameObject
         const physics = this.getComponent(Physics);
         const input = this.getComponent(Input);
         
+        let S = Math.random() * this.dif3;
+        let dif4 = Math.floor(S);
+        
         if(input.isKeyDown('ArrowLeft')||input.isKeyDown('ArrowRight'))
         {
-            physics.acceleration.y = +this.speed;
+            physics.acceleration.y = this.speed+dif4;
             this.direction = 1;
             //console.log("Show y:");
         }
-        if(this.y > 400)
+        
+        if(this.y > 625)
         {
             this.y = 0;
             this.speed = this.speed+50;
@@ -47,6 +52,7 @@ class Rock extends GameObject
             this.speed = 0;
             physics.acceleration.y = 0;
         }
+        
         
         super.update(deltaTime);
     }

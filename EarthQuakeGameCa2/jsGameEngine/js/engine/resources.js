@@ -3,6 +3,7 @@ const Images = {
   player: new Image(), // The Image instance for the player.
   rock: new Image(),
   roof: new Image(),
+  unroof: new Image(),
   collectible: new Image()// The Image instance for the enemy.
 };
 
@@ -17,6 +18,7 @@ const AudioFiles = {
 Images.player.src = './resources/images/player/Person.png'; // Update the image path
 Images.rock.src = './resources/images/enemy/RockPile.png';
 Images.roof.src = './resources/images/collectible/SafeHouse.png';
+Images.unroof.src = './resources/images/collectible/UnSafeHouse.png';
 
 
 // Set the source of the enemy image.
