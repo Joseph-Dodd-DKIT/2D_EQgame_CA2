@@ -33,7 +33,6 @@ class Level extends Game
             new Rock (815, this.canvas.height/7 - 175, Images.rock)
         ];
         
-        //this.RockDelay = 4;
         for (const RK of rok)
         {
                 this.addGameObject(RK);   
@@ -57,22 +56,41 @@ class Level extends Game
             this.addGameObject(RF);
         }
         
-        this.camera.Intensity = 10; 
-        this.delay = 2;
+        this.camera.Intensity = 7; 
+        this.delay = 1;
         this.done = false;
-        //this.addGameObject(new CountDownUI(this.canvas.width/2,
-        //this.canvas.height/2, 4, 100, 40));
     }
     
-    update()
+//    Collision(R,F)
+//    {
+//        return(R.x < F.x + F.width &&
+//               R.x + R.width > F.x &&
+//               R.y < F.y + F.height &&
+//               R.y + R.height > F.y);
+//    }
+    
+    update(rok=[],rof=[])
     {
+//        for (const RK of rok)
+//        {
+//            console.log("ROF"+rof);
+//            for (const RF of rof)
+//            {
+//                if(this.Collision(RK,RF)){
+//                    console.log("Colliding");
+//                }
+//            }
+//        }
+        
+        //RF.x,RF.y,RF.width,RF.height);
+    
         this.delay -= this.deltaTime;
         if(this.done === false && this.delay <= 0)
         {
             this.camera.start(4);
             this.done = true;
         }
-        super.update();
+        super.update(rok,rof);
     }
 }
 export default Level

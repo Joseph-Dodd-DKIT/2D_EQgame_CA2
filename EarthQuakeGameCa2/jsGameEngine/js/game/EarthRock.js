@@ -6,6 +6,7 @@ import Player from "./EarthPlayer.js"
 import Roof from "./EarthRoof.js"
 import Game from "../engine/game.js"
 import Input from "../engine/input.js"
+import Level from "./Level.js"
 
 
 class Rock extends GameObject
@@ -22,6 +23,9 @@ class Rock extends GameObject
         this.height = height;
         this.speed = 15;
         this.RockCount = 0;
+        
+        this.Collision = false;
+        this.rockDelay = 1;
     }
     
     update (deltaTime)
@@ -36,15 +40,32 @@ class Rock extends GameObject
         {
             physics.acceleration.y = this.speed+dif4;
             this.direction = 1;
-            //console.log("Show y:");
         }
         
-        if(this.y > 625)
+//                                                         CURRENTLY WORKING ON.
+                                                                      
+        const rof = this.game.gameObjects.filter((obj)=> obj instanceof Roof);
+        const rok = this.game.gameObjects.filter((obj)=> obj instanceof Rock);
+        
+        for (const RK of rok)
         {
-            this.y = 0;
+            
+        }
+        for (const RF of rof)
+        {
+            if(physics.isColliding(RF.getComponent(Physics))) // && destructable !== true
+            {this.Collision = true;}
+            //else{this.Collision = false;}
+            //console.log("How many times? "+ this.RockCount);
+        }
+       
+            if(this.y > 625 || this.Collision === true)
+        {
             this.speed = this.speed+50;
-            //console.log("Show RockCount:"+this.RockCount);
+            this.y = 0;
+            console.log("Show RockCount:"+this.RockCount);
             this.RockCount++;
+            this.Collision = false;
         }
         if(this.RockCount>10)
         {

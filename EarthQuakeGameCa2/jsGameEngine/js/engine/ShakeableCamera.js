@@ -57,7 +57,7 @@ class ShakeableCamera {
     {
         this.y = this.confiner.height- this.height ;
     }
-     console.log("change: " + this.lastChange + " " + deltaTime);       
+     //console.log("change: " + this.lastChange + " " + deltaTime);       
     if(this.shaking && this.lastChange >= this.shakeDownTime)
     {
         

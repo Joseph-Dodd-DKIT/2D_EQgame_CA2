@@ -20,16 +20,17 @@ class Roof extends GameObject
         this.width = width;
         this.height = height;
         
-       
+        this.tag = "roof";
     }
     
     RoofType()
     {
       
       let r = Math.random() * this.dif;
-      //console.log(r);
             let dif2 = Math.floor(r);
-            //console.log(dif2);
+            
+            //console.log("Two? "+dif2);
+            
             if (dif2 <= 5)
             {
                 let RofImg = Images.roof;
@@ -41,7 +42,24 @@ class Roof extends GameObject
                 this.destructable = true;
                 return RofImg;
             }
+    }
+    
+    update(deltaTime)
+    {
+        const physics = this.getComponent(Physics);
+        const input = this.getComponent(Input);
+        
+        const rok = this.game.gameObjects.filter((obj)=> obj instanceof Rock);
+        for (const RK of rok)
+        {
+            if(physics.isColliding(RK.getComponent(Physics))) // && destructable !== true
+            {
+                this.RoofType();
+                //console.log("One");
+            }
         }
+        super.update(deltaTime);
+    }
     
 }
 export default Roof
