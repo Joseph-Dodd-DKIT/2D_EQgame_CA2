@@ -32,7 +32,6 @@ class Level extends Game
             new Rock (660, this.canvas.height/7 - 175, Images.rock),
             new Rock (815, this.canvas.height/7 - 175, Images.rock)
         ];
-        
         for (const RK of rok)
         {
                 this.addGameObject(RK);   
@@ -50,7 +49,6 @@ class Level extends Game
             new Roof (660, this.canvas.height/1.5 - 50),
             new Roof (815, this.canvas.height/1.5 - 50)
         ];
-        
         for (const RF of rof)
         {
             this.addGameObject(RF);
@@ -61,29 +59,8 @@ class Level extends Game
         this.done = false;
     }
     
-//    Collision(R,F)
-//    {
-//        return(R.x < F.x + F.width &&
-//               R.x + R.width > F.x &&
-//               R.y < F.y + F.height &&
-//               R.y + R.height > F.y);
-//    }
-    
     update(rok=[],rof=[])
     {
-//        for (const RK of rok)
-//        {
-//            console.log("ROF"+rof);
-//            for (const RF of rof)
-//            {
-//                if(this.Collision(RK,RF)){
-//                    console.log("Colliding");
-//                }
-//            }
-//        }
-        
-        //RF.x,RF.y,RF.width,RF.height);
-    
         this.delay -= this.deltaTime;
         if(this.done === false && this.delay <= 0)
         {

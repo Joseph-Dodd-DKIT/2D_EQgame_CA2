@@ -24,7 +24,6 @@ class Rock extends GameObject
         this.speed = 15;
         this.RockCount = 0;
         
-        this.Collision = false;
         this.rockDelay = 1;
     }
     
@@ -42,15 +41,9 @@ class Rock extends GameObject
             this.direction = 1;
         }
         
-//                                                         CURRENTLY WORKING ON.
                                                                       
         const rof = this.game.gameObjects.filter((obj)=> obj instanceof Roof);
-        const rok = this.game.gameObjects.filter((obj)=> obj instanceof Rock);
         
-        for (const RK of rok)
-        {
-            
-        }
         for (const RF of rof)
         {
             if(RF.Safe === true)
@@ -77,9 +70,7 @@ class Rock extends GameObject
             physics.acceleration.y = 0;
         }
         
-        
         super.update(deltaTime);
     }
-
 }
 export default Rock

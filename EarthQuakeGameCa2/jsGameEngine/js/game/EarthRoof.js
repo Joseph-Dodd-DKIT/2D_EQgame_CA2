@@ -29,22 +29,20 @@ class Roof extends GameObject
       let r = Math.random() * this.dif;
             let dif2 = Math.floor(r);
             
-            //console.log("Two? "+dif2);
-            
             if (dif2 <= 5)
             {
                 this.Safe = true;
-                console.log("Safe: "+this.Safe);
                 let RofImg = Images.roof;
                 return RofImg;
             }
             else
             {
                 this.Safe = false;
-                console.log("Safe 2: "+this.Safe);
                 let RofImg = Images.unroof;
                 return RofImg;
             }
     }
+    //console.log("Safe: "+this.Safe);
+    //console.log("Safe 2: "+this.Safe);
 }
 export default Roof
