@@ -58,18 +58,18 @@ class Rock extends GameObject
                 if(physics.isColliding(RF.getComponent(Physics)))
                 {this.speed = this.speed+50;
                 this.y = 0;
-                this.RockCount++;}
+                this.RockCount++;
+                RF.RoofType();}
             }
-            
+            else if(this.y > 625)
+            {
+                this.speed = this.speed+50;
+                this.y = 0;
+                this.RockCount++;
+                RF.RoofType();
+            }
         }
-       
-            if(this.y > 625)
-        {
-            this.speed = this.speed+50;
-            this.y = 0;
-            //console.log("Show RockCount:"+this.RockCount);
-            this.RockCount++;
-        }
+        
         if(this.RockCount>10)
         {
             this.y = -200;

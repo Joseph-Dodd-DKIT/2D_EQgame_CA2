@@ -11,7 +11,7 @@ class Roof extends GameObject
     constructor(x,y,width,height)
     {
         super(x,y);
-        this.dif = 15;
+        this.dif = 10;
         this.Safe;
         this.renderer = new Renderer('purple', 150, 150, this.RoofType());
         this.addComponent(this.renderer);
@@ -46,23 +46,5 @@ class Roof extends GameObject
                 return RofImg;
             }
     }
-    
-    update(deltaTime)
-    {
-//        const physics = this.getComponent(Physics);
-//        const input = this.getComponent(Input);
-//        
-//        const rok = this.game.gameObjects.filter((obj)=> obj instanceof Rock);
-//        for (const RK of rok)
-//        {
-//            if(physics.isColliding(RK.getComponent(Physics))) // && destructable !== true
-//            {
-//                this.RoofType();
-//                //console.log("One");
-//            }
-//        }
-        super.update(deltaTime);
-    }
-    
 }
 export default Roof
