@@ -12,7 +12,7 @@ class Roof extends GameObject
     {
         super(x,y);
         this.dif = 15;
-        this.destructable=false;
+        this.Safe;
         this.renderer = new Renderer('purple', 150, 150, this.RoofType());
         this.addComponent(this.renderer);
         this.addComponent( new Physics({x:0, y:0}, {x:0, y:0}, {x:0, y:0}));
@@ -33,31 +33,34 @@ class Roof extends GameObject
             
             if (dif2 <= 5)
             {
+                this.Safe = true;
+                console.log("Safe: "+this.Safe);
                 let RofImg = Images.roof;
                 return RofImg;
             }
             else
             {
+                this.Safe = false;
+                console.log("Safe 2: "+this.Safe);
                 let RofImg = Images.unroof;
-                this.destructable = true;
                 return RofImg;
             }
     }
     
     update(deltaTime)
     {
-        const physics = this.getComponent(Physics);
-        const input = this.getComponent(Input);
-        
-        const rok = this.game.gameObjects.filter((obj)=> obj instanceof Rock);
-        for (const RK of rok)
-        {
-            if(physics.isColliding(RK.getComponent(Physics))) // && destructable !== true
-            {
-                this.RoofType();
-                //console.log("One");
-            }
-        }
+//        const physics = this.getComponent(Physics);
+//        const input = this.getComponent(Input);
+//        
+//        const rok = this.game.gameObjects.filter((obj)=> obj instanceof Rock);
+//        for (const RK of rok)
+//        {
+//            if(physics.isColliding(RK.getComponent(Physics))) // && destructable !== true
+//            {
+//                this.RoofType();
+//                //console.log("One");
+//            }
+//        }
         super.update(deltaTime);
     }
     

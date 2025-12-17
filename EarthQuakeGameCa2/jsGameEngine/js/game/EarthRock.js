@@ -53,19 +53,22 @@ class Rock extends GameObject
         }
         for (const RF of rof)
         {
-            if(physics.isColliding(RF.getComponent(Physics))) // && destructable !== true
-            {this.Collision = true;}
-            //else{this.Collision = false;}
-            //console.log("How many times? "+ this.RockCount);
+            if(RF.Safe === true)
+            {
+                if(physics.isColliding(RF.getComponent(Physics)))
+                {this.speed = this.speed+50;
+                this.y = 0;
+                this.RockCount++;}
+            }
+            
         }
        
-            if(this.y > 625 || this.Collision === true)
+            if(this.y > 625)
         {
             this.speed = this.speed+50;
             this.y = 0;
-            console.log("Show RockCount:"+this.RockCount);
+            //console.log("Show RockCount:"+this.RockCount);
             this.RockCount++;
-            this.Collision = false;
         }
         if(this.RockCount>10)
         {
