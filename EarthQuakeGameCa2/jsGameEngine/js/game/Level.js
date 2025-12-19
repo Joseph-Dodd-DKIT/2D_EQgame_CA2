@@ -6,7 +6,6 @@ import Confiner from "../engine/Confiner.js"
 import Rock from "./EarthRock.js"
 import Roof from "./EarthRoof.js"
 import ShakeableCamera from "../engine/ShakeableCamera.js"
-//import Button from "./Button.js"
 
 class Level extends Game
 {
@@ -15,8 +14,6 @@ class Level extends Game
         super(canvasId);
         const player = new Player(0, this.canvas.height/1 - 145, Images.player);
         this.addGameObject(player);
-        
-        //this.addGameObject(new Button(-580, this.canvas.height/7 - 175, "Start"));
         
         this.camera = new ShakeableCamera(null, this.canvas.width, this.canvas.height);
         
@@ -61,15 +58,6 @@ class Level extends Game
         this.delay = 1;
         this.done = false;
     }
-    
-//    RoofSet()
-//    {
-//        const rof = this.game.gameObjects.filter((obj)=> obj instanceof Roof);
-//        for (const RF of rof)
-//        {
-//            this.addGameObject(RF);
-//        }
-//    }
     
     update(rok=[],rof=[])
     {

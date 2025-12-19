@@ -5,7 +5,6 @@ import {Images} from "../engine/resources.js"
 import Rock from "./EarthRock.js"
 import Input from "../engine/input.js"
 import Level from "./Level.js"
-//import Button from "./Button.js"
 
 class Roof extends GameObject
 {

@@ -7,7 +7,6 @@ import Roof from "./EarthRoof.js"
 import Game from "../engine/game.js"
 import Input from "../engine/input.js"
 import Level from "./Level.js"
-//import Button from "./Button.js"
 
 
 class Rock extends GameObject
@@ -50,20 +49,17 @@ class Rock extends GameObject
             if(RF.Safe === true)
             {
                 if(physics.isColliding(RF.getComponent(Physics)))
-                {this.speed = this.speed+25; //Button.RockSpeed
+                {this.speed = this.speed+50;
                 this.y = 0;
                 this.RockCount++;
-                RF.RoofType();
-                //RF.RoofSet();
-            }
+                RF.RoofType();}
             }
             else if(this.y > 625)
             {
-                this.speed = this.speed+25; //Button.RockSpeed
+                this.speed = this.speed+50;
                 this.y = 0;
                 this.RockCount++;
                 RF.RoofType();
-                //RF.RoofSet();
             }
         }
         
