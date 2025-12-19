@@ -12,10 +12,12 @@ class Level extends Game
     constructor(canvasId)
     {
         super(canvasId);
-        const player = new Player(0, this.canvas.height/1 - 145, Images.player);
+        const player = new Player(0, this.canvas.height/1 - 125, Images.player);
         this.addGameObject(player);
         
         this.camera = new ShakeableCamera(null, this.canvas.width, this.canvas.height);
+        
+        this.FinalCount = 0;
         
         this.camera.target=player;
         this.camera.confiner = new Confiner(0,0,1000,this.canvas.height);
@@ -34,7 +36,7 @@ class Level extends Game
         ];
         for (const RK of rok)
         {
-                this.addGameObject(RK);   
+                this.addGameObject(RK);
         }
         
         let rof = [
@@ -67,6 +69,12 @@ class Level extends Game
             this.camera.start(4);
             this.done = true;
         }
+          
+        if (Rock.GameWin === 10)
+        {
+            GameEndCountAdd();
+        }
+        
         super.update(rok,rof);
     }
 }

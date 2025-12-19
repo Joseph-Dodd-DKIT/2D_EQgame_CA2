@@ -15,7 +15,7 @@ class Rock extends GameObject
     {
         super(x,y);
         this.dif3 = 15;
-        this.renderer = new Renderer('purple', 150, 150, Images.rock);
+        this.renderer = new Renderer('purple', 130, 130, Images.rock);
         this.addComponent(this.renderer);
         this.addComponent( new Physics({x:0, y:0}, {x:0, y:0}, {x:0, y:0}));
         this.addComponent( new Input());
@@ -24,6 +24,8 @@ class Rock extends GameObject
         this.speed = 15;
         this.RockCount = 0;
         
+        Level.FinalCount = 0;
+        this.GameWin = 0;
         this.rockDelay = 1;
     }
     
@@ -54,6 +56,13 @@ class Rock extends GameObject
                 this.RockCount++;
                 RF.RoofType();
                 RF.renderer.img = Roof.roofImg;
+                this.GameWin++;
+                console.log("GameWin? "+this.GameWin);
+                if(this.GameWin === 10)
+                {
+                    Level.FinalCount++;
+                    console.log("Win COUNT? "+Level.FinalCount);
+                }
             }
             }
             else if(this.y > 625)
@@ -63,17 +72,30 @@ class Rock extends GameObject
                 this.RockCount++;
                 RF.RoofType();
                 RF.renderer.img = Roof.roofImg;
+                this.GameWin++;
+                console.log("GameWin? "+this.GameWin);
+                if(this.GameWin === 10)
+                {
+                    Level.FinalCount++;
+                    console.log("Win COUNT? "+Level.FinalCount);
+                }
             }
         }
         
-        if(this.RockCount>10)
+        if(this.RockCount>=10)
         {
             this.y = -200;
             this.speed = 0;
             physics.acceleration.y = 0;
         }
         
+        if (Level.FinalCount === 10)
+        {
+            alert("Game Over: You Win!");
+        }
+        
         super.update(deltaTime);
     }
+        
 }
 export default Rock

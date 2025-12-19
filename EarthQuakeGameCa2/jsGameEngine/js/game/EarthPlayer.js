@@ -12,7 +12,7 @@ class Player extends GameObject
     constructor(x,y,width,height,Img)
     {
         super(x,y);
-        this.renderer = new Renderer('purple', 150, 150, Images.player);
+        this.renderer = new Renderer('purple', 100, 100, Images.player);
         this.addComponent(this.renderer);
         this.addComponent( new Physics({x:0, y:0}, {x:0, y:0}, {x:0, y:0}));
         this.addComponent( new Input());
@@ -44,7 +44,7 @@ class Player extends GameObject
         {
             if(physics.isColliding(RK.getComponent(Physics)))
             {
-                
+                //alert("Game Over: You Lose...");
             }
         }
         
