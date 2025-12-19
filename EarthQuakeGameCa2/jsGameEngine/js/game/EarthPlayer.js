@@ -5,6 +5,7 @@ import Physics from "../engine/physics.js"
 import Input from "../engine/input.js"
 import {Images} from "../engine/resources.js"
 import Rock from "./EarthRock.js"
+import Level from './Level.js';
 
 const KeyStates = {ArrowLeft: false, ArrowRight: false, Space: false};
 class Player extends GameObject
@@ -19,6 +20,8 @@ class Player extends GameObject
         this.width = width;
         this.height = height;
         this.speed = 400;
+        
+        this.hit = 0;
     }
     
     update (deltaTime)
@@ -37,6 +40,20 @@ class Player extends GameObject
             if(this.x > 880)
             {this.x = 880;}
         }else{physics.velocity.x = 0;}
+        
+        
+        const rok = this.game.gameObjects.filter((obj)=> obj instanceof Rock);
+        const game = new Level('gameCanvas');
+        for (const RK of rok)
+        {
+            if(physics.isColliding(RK.getComponent(Physics)))
+            {
+                //game.start();
+                //this.hit++;
+                //console.log("Hit?"+this.hit);
+            }
+        }
+        
     super.update(deltaTime);
     }
 }
