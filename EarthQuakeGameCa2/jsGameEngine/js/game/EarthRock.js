@@ -52,7 +52,9 @@ class Rock extends GameObject
                 {this.speed = this.speed+50;
                 this.y = 0;
                 this.RockCount++;
-                RF.RoofType();}
+                RF.RoofType();
+                RF.renderer.img = Roof.roofImg;
+            }
             }
             else if(this.y > 625)
             {
@@ -60,6 +62,7 @@ class Rock extends GameObject
                 this.y = 0;
                 this.RockCount++;
                 RF.RoofType();
+                RF.renderer.img = Roof.roofImg;
             }
         }
         

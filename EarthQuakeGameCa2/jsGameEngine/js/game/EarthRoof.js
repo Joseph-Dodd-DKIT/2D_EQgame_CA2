@@ -13,7 +13,8 @@ class Roof extends GameObject
         super(x,y);
         this.dif = 10;
         this.Safe;
-        this.renderer = new Renderer('purple', 150, 150, this.RoofType());
+        this.roofImg = this.RoofType();
+        this.renderer = new Renderer('purple', 150, 150, this.roofImg);
         this.addComponent(this.renderer);
         this.addComponent( new Physics({x:0, y:0}, {x:0, y:0}, {x:0, y:0}));
         this.addComponent( new Input());
@@ -33,12 +34,14 @@ class Roof extends GameObject
             {
                 this.Safe = true;
                 let RofImg = Images.roof;
+                this.roofImg = RofImg;
                 return RofImg;
             }
             else
             {
                 this.Safe = false;
                 let RofImg = Images.unroof;
+                this.roofImg = RofImg;
                 return RofImg;
             }
     }

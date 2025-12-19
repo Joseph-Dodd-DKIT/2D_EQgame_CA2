@@ -37,6 +37,17 @@ class Player extends GameObject
             if(this.x > 880)
             {this.x = 880;}
         }else{physics.velocity.x = 0;}
+        
+        
+        const rok = this.game.gameObjects.filter((obj)=> obj instanceof Rock);
+        for (const RK of rok)
+        {
+            if(physics.isColliding(RK.getComponent(Physics)))
+            {
+                
+            }
+        }
+        
     super.update(deltaTime);
     }
 }
