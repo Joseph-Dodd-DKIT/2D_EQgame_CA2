@@ -18,7 +18,7 @@ class Player extends GameObject
         this.addComponent( new Input());
         this.width = width;
         this.height = height;
-        this.speed = 400;
+        this.speed = 600;
     }
     
     update (deltaTime)
@@ -44,7 +44,7 @@ class Player extends GameObject
         {
             if(physics.isColliding(RK.getComponent(Physics)))
             {
-                //alert("Game Over: You Lose...");
+                alert("Game Over: You Lose...");
             }
         }
         

@@ -24,6 +24,7 @@ class Rock extends GameObject
         this.speed = 15;
         this.RockCount = 0;
         
+        this.dif = 10;
         Level.FinalCount = 0;
         this.GameWin = 0;
         this.rockDelay = 1;
@@ -44,20 +45,21 @@ class Rock extends GameObject
         }
         
                                                                       
-        const rof = this.game.gameObjects.filter((obj)=> obj instanceof Roof);
+        let rof = this.game.gameObjects.filter((obj)=> obj instanceof Roof);
         
-        for (const RF of rof)
+        for (let RF of rof)
         {
             if(RF.Safe === true)
             {
                 if(physics.isColliding(RF.getComponent(Physics)))
-                {this.speed = this.speed+50;
+                {this.speed = this.speed+20;
                 this.y = 0;
                 this.RockCount++;
-                RF.RoofType();
-                RF.renderer.img = Roof.roofImg;
+                
+                //RF.RoofType();
+                Roof.renderer = new Renderer('purple', 150, 150, RF.RoofType());  //the One thing I couldn't get right.
+                
                 this.GameWin++;
-                console.log("GameWin? "+this.GameWin);
                 if(this.GameWin === 10)
                 {
                     Level.FinalCount++;
@@ -67,13 +69,14 @@ class Rock extends GameObject
             }
             else if(this.y > 625)
             {
-                this.speed = this.speed+50;
+                this.speed = this.speed+20;
                 this.y = 0;
                 this.RockCount++;
-                RF.RoofType();
-                RF.renderer.img = Roof.roofImg;
+                
+                //RF.RoofType();
+                Roof.renderer = new Renderer('purple', 150, 150, RF.RoofType());  //the same thing I couldn't get right.
+
                 this.GameWin++;
-                console.log("GameWin? "+this.GameWin);
                 if(this.GameWin === 10)
                 {
                     Level.FinalCount++;
